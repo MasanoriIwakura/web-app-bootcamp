@@ -19,6 +19,7 @@ WORKDIR $APP_BASE_PATH
 COPY ./bootcamp ./
 RUN composer install && \
     ./vendor/bin/rr get-binary && \
+    docker-php-ext-install pdo_mysql && \
     php artisan key:generate
 
 CMD ["./rr", "serve", "-v", "-d"]
