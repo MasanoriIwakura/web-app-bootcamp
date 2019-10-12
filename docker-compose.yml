@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  php-laravel:
+    image: web-app-bootcamp/php-laravel
+    build: ./php-laravel
+    ports:
+      - "8000:80"
+    volumes:
+      - ./php-laravel/bootcamp:/var/www/bootcamp
+
