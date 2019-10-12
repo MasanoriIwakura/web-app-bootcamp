@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('diaries', 'Api\Diary\IndexDiaryController')
+    ->name('api.diary.index');
+
+Route::get('diaries/{id}', 'Api\Diary\EditDiaryController')
+    ->name('api.diary.edit');

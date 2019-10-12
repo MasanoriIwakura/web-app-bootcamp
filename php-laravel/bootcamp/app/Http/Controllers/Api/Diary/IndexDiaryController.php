@@ -14,9 +14,9 @@ class IndexDiaryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
-    {
-        $diaries = Diary::all();
-        return $diaries;
+    public function __invoke(
+        Request $request
+    ){
+        return response(Diary::all());
     }
 }
