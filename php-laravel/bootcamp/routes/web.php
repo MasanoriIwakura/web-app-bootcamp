@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+$router->prefix('/api')->group(function () use ($router) {
+    $router->get('/diaries', 'Api/Diary/IndexDiaryController')
+        ->name('api.diary.index');
 });

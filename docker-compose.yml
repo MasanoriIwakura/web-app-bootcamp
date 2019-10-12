@@ -8,4 +8,17 @@ services:
       - "8000:80"
     volumes:
       - ./php-laravel/bootcamp:/var/www/bootcamp
+    depends_on:
+      - mysql
 
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - ./mysql/initdb:/docker-entrypoint-initdb.d
+      - ./mysql/conf:/etc/mysql/conf.d
+      - database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  database:
