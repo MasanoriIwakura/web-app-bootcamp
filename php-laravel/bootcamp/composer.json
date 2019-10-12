@@ -16,6 +16,7 @@
         "spiral/roadrunner": "^1.4"
     },
     "require-dev": {
+        "avto-dev/stacked-dumper-laravel": "^1.0",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
@@ -29,7 +30,10 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "avto-dev/roadrunner-laravel",
+                "avto-dev/stacked-dumper-laravel"
+            ]
         }
     },
     "autoload": {

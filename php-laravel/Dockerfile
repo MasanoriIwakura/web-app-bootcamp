@@ -20,6 +20,7 @@ COPY ./bootcamp ./
 RUN composer install && \
     ./vendor/bin/rr get-binary && \
     docker-php-ext-install pdo_mysql && \
-    php artisan key:generate
+    php artisan config:cache && \
+    php artisan route:cache
 
 CMD ["./rr", "serve", "-v", "-d"]
