@@ -2,24 +2,24 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">
+      <h1 class="nes-text is-success">
         nuxt
       </h1>
-      <h2 class="subtitle">
+      <h2 class="nes-text is-success">
         My laudable Nuxt.js project
       </h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
           target="_blank"
-          class="button--green"
+          class="nes-btn is-primary"
         >
           Documentation
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
-          class="button--grey"
+          class="nes-btn is-success"
         >
           GitHub
         </a>

@@ -23,6 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
+    "node_modules/nes.css/css/nes.min.css",
   ],
   /*
   ** Plugins to load before mounting the App
@@ -37,7 +38,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-webfontloader'
   ],
+  webfontloader: {
+    google: {
+      families: ['Press+Start+2P']
+    }
+  },
   /*
   ** Build configuration
   */
