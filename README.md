@@ -36,7 +36,7 @@
 
 ## フロントエンド
 
-- Vue.js
+- Nuxt.js
 - React
 
 遊び心を入れたいため、CSSフレームワークに`NES.css`を使用する
