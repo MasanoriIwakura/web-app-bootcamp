@@ -1,6 +1,9 @@
 
 export default {
   mode: 'spa',
+  env: {
+    apiUrl: process.env.API_URL || 'http://localhost:8000'
+  },
   /*
   ** Headers of the page
   */
@@ -24,6 +27,8 @@ export default {
   */
   css: [
     "node_modules/nes.css/css/nes.min.css",
+    "assets/css/simple-grid.min.css",
+    "assets/css/style.css"
   ],
   /*
   ** Plugins to load before mounting the App
@@ -38,8 +43,11 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    `@nuxtjs/axios`,
     'nuxt-webfontloader'
   ],
+  axios: {
+  },
   webfontloader: {
     google: {
       families: ['Press+Start+2P']
