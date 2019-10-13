@@ -47,7 +47,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($request->is('ajax/*') || $request->is('api/*') || $request->ajax()) {
-            $status = 400;
+            $status = 500;
             if ($this->isHttpException($exception)) {
                 $status = $exception->getStatusCode();
             }
