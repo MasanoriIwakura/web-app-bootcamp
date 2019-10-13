@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class IndexDiaryController extends Controller
 {
+    protected $diary;
+
+    /**
+     * IndexDiaryController
+     *
+     * @param Diary $diary
+     */
+    public function __construct(
+        Diary $diary
+    ){
+        $this->diary = $diary;
+    }
+
     /**
      * Handle the incoming request.
      *
@@ -17,6 +30,6 @@ class IndexDiaryController extends Controller
     public function __invoke(
         Request $request
     ){
-        return response(Diary::all());
+        return response($this->diary->all());
     }
 }

@@ -8,6 +8,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class EditDiaryController extends Controller
 {
+    protected $diary;
+
+    /**
+     * EditDiaryController
+     *
+     * @param Diary $diary
+     */
+    public function __construct(
+        Diary $diary
+    ){
+        $this->diary = $diary;
+    }
+
     /**
      * Undocumented function
      *
@@ -17,7 +30,7 @@ class EditDiaryController extends Controller
     public function __invoke(
         string $id
     ){
-        $diary = Diary::where('id', $id)->first();
+        $diary = $this->diary->where('id', $id)->first();
 
         if (is_null($diary)) {
             throw new NotFoundHttpException('Diary not found. id:' . $id);
