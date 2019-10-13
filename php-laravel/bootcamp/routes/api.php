@@ -24,3 +24,6 @@ Route::post('diaries', 'Api\DiaryController@store')
 
 Route::put('diaries/{id}', 'Api\DiaryController@update')
     ->name('api.diary.update');
+
+Route::delete('diaries/{id}', 'Api\DiaryController@destroy')
+    ->name('api.diary.delete');
