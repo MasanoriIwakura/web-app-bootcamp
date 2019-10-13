@@ -13,8 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('diaries', 'Api\Diary\IndexDiaryController')
+Route::get('diaries', 'Api\DiaryController@index')
     ->name('api.diary.index');
 
-Route::get('diaries/{id}', 'Api\Diary\EditDiaryController')
+Route::get('diaries/{id}', 'Api\DiaryController@show')
     ->name('api.diary.edit');
+
+Route::post('diaries', 'Api\DiaryController@store')
+    ->name('api.diary.create');
+
+Route::put('diaries/{id}', 'Api\DiaryController@update')
+    ->name('api.diary.update');
