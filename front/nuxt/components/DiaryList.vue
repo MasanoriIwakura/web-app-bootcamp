@@ -43,7 +43,7 @@ export default class DiaryList extends Vue {
   private routeName: string = this.$nuxt.$route.params.slug;
 
   public mounted(): void {
-    const res = this.$axios
+    this.$axios
       .$get("http://localhost:8000/api/diaries")
       .then((response: Diary[]) => {
         this.diaries = response;
