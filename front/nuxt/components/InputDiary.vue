@@ -2,6 +2,14 @@
   <div class="input-diary">
     <div class="row">
       <div class="col-10">
+        <div class="nes-field">
+          <label class="form-label" >Id: {{ id }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10">
         <input-title :value="title" />
       </div>
     </div>

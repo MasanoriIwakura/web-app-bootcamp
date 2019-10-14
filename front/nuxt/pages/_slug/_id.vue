@@ -8,7 +8,6 @@
 
     <div class="row">
       <div class="col-10">
-        <h3>Id: {{ id }}</h3>
         <input-diary :id="id" :title="title" :body="body" />
       </div>
     </div>
