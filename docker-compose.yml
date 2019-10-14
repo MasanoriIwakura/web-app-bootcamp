@@ -10,15 +10,31 @@ services:
       - ./api/php-laravel/bootcamp:/var/www/bootcamp
     depends_on:
       - mysql
+    networks: 
+      - database
 
   mysql:
     image: mysql:8.0
     volumes:
       - ./mysql/initdb:/docker-entrypoint-initdb.d
       - ./mysql/conf:/etc/mysql/conf.d
-      - database:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Tokyo
+    networks: 
+      - database
+
+  migrate:
+    image: migrate/migrate:v4.6.2
+    volumes:
+    - ./migration:/migrations
+    networks: 
+      - database
+
 
 volumes:
+  mysql-data:
+
+networks:
   database:
