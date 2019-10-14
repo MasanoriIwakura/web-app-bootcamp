@@ -2,13 +2,13 @@
   <div class="input-diary">
     <div class="row">
       <div class="col-10">
-        <input-title />
+        <input-title :value="title" />
       </div>
     </div>
 
     <div class="row">
       <div class="col-10">
-        <input-body />
+        <input-body :value="body" />
       </div>
     </div>
 
@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
   components: {
@@ -29,6 +29,21 @@ import { Component, Vue } from "vue-property-decorator";
     InputBody: () => import("~/components/InputBody.vue")
   }
 })
-export default class InputDiary extends Vue {}
+export default class InputDiary extends Vue {
+  @Prop({
+    default: 0
+  })
+  id: number;
+
+  @Prop({
+    default: ''
+  })
+  title: string;
+
+  @Prop({
+    default: ''
+  })
+  body: string;
+}
 </script>
 

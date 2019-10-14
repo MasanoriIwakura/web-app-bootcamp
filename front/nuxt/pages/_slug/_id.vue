@@ -1,6 +1,17 @@
 <template>
   <div class="edit">
-    <h1>{{ $nuxt.$route.params.id }}</h1>
+    <div class="row">
+      <div class="col">
+        <h2>Edit Diary</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10">
+        <h3>Id: {{ id }}</h3>
+        <input-diary :id="id" :title="title" :body="body" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,10 +25,8 @@ import InputDiary from "~/components/InputDiary.vue"
   }
 })
 export default class Edit extends Vue {
-  @Prop({
-    default: '',
-    required: true
-  })
-  id: string;
+  id: number = parseInt(this.$nuxt.$route.params.id)
+  title: string = 'test-title'
+  body: string = 'test-body'
 }
 </script>

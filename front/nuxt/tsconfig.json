@@ -29,6 +29,7 @@
     ],
     "experimentalDecorators": true,
     "allowJs": true,
+    "strictPropertyInitialization": false
   },
   "exclude": [
     "node_modules"
