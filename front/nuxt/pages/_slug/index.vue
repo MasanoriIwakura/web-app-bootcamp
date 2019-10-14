@@ -41,7 +41,7 @@ import DiaryList from "~/components/DiaryList.vue"
 })
 export default class Index extends Vue {
   // TODO:後でAPIの向き先変更に使用
-  routeName: string = this.$nuxt.$route.path.replace(/\//g, '');
+  private routeName: string = this.$nuxt.$route.params.slug;
 }
 </script>
 
