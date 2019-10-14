@@ -18,9 +18,7 @@
             <td>{{ diary.body }}</td>
             <td>{{ diary.updated_at }}</td>
             <td>
-              <nuxt-link class="nes-btn is-primary" :to="{ neme: '_slug-id', params: { id: diary.id } }">
-                Edit
-              </nuxt-link>
+              <nuxt-link class="nes-btn is-primary" :to="`${routeName}/${diary.id}`">Edit</nuxt-link>
             </td>
           </tr>
         </tbody>
@@ -36,21 +34,15 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-
-interface Diary {
-  id: number;
-  title: string;
-  body: string;
-  created_at: Date;
-  updated_at: Date;
-}
+import Diary from "~/interfaces/diary";
 
 @Component
 export default class DiaryList extends Vue {
-  diaries: Diary[] = [];
-  errorMessage: string = '';
+  private diaries: Diary[] = [];
+  private errorMessage: string = "";
+  private routeName: string = this.$nuxt.$route.params.slug;
 
-  mounted() {
+  public mounted(): void {
     const res = this.$axios
       .$get("http://localhost:8000/api/diaries")
       .then((response: Diary[]) => {
@@ -58,7 +50,7 @@ export default class DiaryList extends Vue {
       })
       .catch((error: any) => {
         console.error(error);
-        this.errorMessage = 'Error. server access failure.';
+        this.errorMessage = "Error. server access failure.";
       });
   }
 }

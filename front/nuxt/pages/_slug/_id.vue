@@ -4,6 +4,9 @@
       <div class="col">
         <h2>Edit Diary</h2>
       </div>
+      <div class="col">
+        <nuxt-link class="nes-btn" :to="previous">Back</nuxt-link>
+      </div>
     </div>
 
     <div class="row">
@@ -24,8 +27,9 @@ import InputDiary from "~/components/InputDiary.vue"
   }
 })
 export default class Edit extends Vue {
-  id: number = parseInt(this.$nuxt.$route.params.id)
-  title: string = 'test-title'
-  body: string = 'test-body'
+  private id: number = parseInt(this.$nuxt.$route.params.id);
+  private title: string = 'test-title';
+  private body: string = 'test-body';
+  private previous: string = `/${this.$nuxt.$route.params.slug}`;
 }
 </script>
