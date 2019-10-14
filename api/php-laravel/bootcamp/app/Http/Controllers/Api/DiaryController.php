@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Diary;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Diary\RegisterDiaryRequest;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DiaryController extends Controller
 {
