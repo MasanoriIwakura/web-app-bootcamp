@@ -25,7 +25,7 @@ metrics:
 # http service configuration.
 http:
   # http host to listen.
-  address: 0.0.0.0:80
+  address: 0.0.0.0:9000
 
   #ssl: # For forcing HTTPS you should set env variable "APP_FORCE_HTTPS" to "true" or add --force-https worker argument
     # custom https port (default 443)
