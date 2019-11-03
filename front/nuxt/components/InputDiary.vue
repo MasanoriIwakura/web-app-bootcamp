@@ -9,20 +9,26 @@
     <div class="row">
       <div class="col-10">
         <div class="nes-field">
-          <label class="form-label">Id: {{ id }}</label>
+          <label class="form-label">Id: {{ diary.id }}</label>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-10">
-        <input-title :value="title" />
+        <input-title
+          :value="diary.title"
+          @input-value="inputTitle"
+        />
       </div>
     </div>
 
     <div class="row">
       <div class="col-10">
-        <input-body :value="body" />
+        <input-body 
+          :value="diary.body"
+          @input-value="inputBody"
+        />
       </div>
     </div>
 
@@ -36,9 +42,9 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import InputTitle from "~/components/InputTitle.vue";
-import InputBody from "~/components/InputBody.vue";
-import Diary from "~/interfaces/diary";
+import InputTitle from "./InputTitle.vue";
+import InputBody from "./InputBody.vue";
+import Diary from "../interfaces/diary";
 
 @Component({
   components: {
@@ -47,38 +53,53 @@ import Diary from "~/interfaces/diary";
   }
 })
 export default class InputDiary extends Vue {
-  @Prop({
-    default: 0
-  })
-  id: number;
+  @Prop()
+  diary: Diary
 
   @Prop({
-    default: ""
+    default: "edit"
   })
-  title: string;
-
-  @Prop({
-    default: ""
-  })
-  body: string;
+  mode: string;
 
   private successMessage: string = "";
   private errorMessage: string = "";
 
+  public inputTitle(val: string){
+    this.diary.title = val; 
+  }
+
+
+  public inputBody(val: string){
+    this.diary.body = val;
+  }
+
   private submit(): void {
-    this.$axios
-      .$put(`http://localhost:8000/api/diaries/${this.id}`, {
-        'id': this.id,
-        'title': this.title,
-        'body': this.body
-      })
-      .then((response: any) => {
-        this.successMessage = "Success.";
-      })
-      .catch((error: any) => {
-        console.error(error);
-        this.errorMessage = "Error. Update failure.";
-      });
+    if (this.mode == "edit") {
+      this.$axios
+        .$put(`http://localhost:8000/api/diaries/${this.diary.id}`, {
+          ...this.diary
+        })
+        .then((response: any) => {
+          this.successMessage = "Success.";
+        })
+        .catch((error: any) => {
+          console.error(error);
+          this.errorMessage = "Error. Update failure.";
+        });
+    } else {
+      this.$axios
+        .$post(`http://localhost:8000/api/diaries`, {
+          title: this.diary.title,
+          body: this.diary.body
+        })
+        .then((response: any) => {
+          this.successMessage = "Success.";
+        })
+        .catch((error: any) => {
+          console.error(error);
+          this.errorMessage = "Error. Create failure.";
+        });
+    }
   }
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div class="diary-list">
     <div class="row">
-      <di class="col" v-show="errorMessage">
+      <div class="col" v-show="errorMessage">
         <h2 class="nes-text is-error">{{ this.errorMessage }}</h2>
-      </di>
+      </div>
       <div class="col" v-show="successMessage">
         <h2 class="nes-text is-success">{{ this.successMessage }}</h2>
       </div>

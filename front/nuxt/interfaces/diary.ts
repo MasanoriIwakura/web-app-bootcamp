@@ -1,7 +1,7 @@
 export default interface Diary {
-  id: number;
+  id?: number;
   title: string;
   body: string;
-  created_at: Date;
-  updated_at: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }

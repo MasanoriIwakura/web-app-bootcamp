@@ -19,7 +19,7 @@
 
     <div class="row">
       <div class="col-10">
-        <input-diary :id="id" :title="title" :body="body" />
+        <input-diary :diary="diary" />
       </div>
     </div>
   </div>
@@ -27,8 +27,8 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator"
-import InputDiary from "~/components/InputDiary.vue"
-import Diary from "~/interfaces/diary"
+import InputDiary from "../../components/InputDiary.vue"
+import Diary from "../../interfaces/diary";
 
 @Component({
   components: {
@@ -36,18 +36,20 @@ import Diary from "~/interfaces/diary"
   }
 })
 export default class Edit extends Vue {
-  private id: number = parseInt(this.$nuxt.$route.params.id);
-  private title: string = "";
-  private body: string = "";
+  private diary: Diary = {
+    id: parseInt(this.$nuxt.$route.params.id),
+    title: "",
+    body: ""
+  };
   private previous: string = `/${this.$nuxt.$route.params.slug}`;
   private errorMessage: string = "";
 
   public mounted(): void {
     this.$axios
-      .$get(`http://localhost:8000/api/diaries/${this.id}`)
+      .$get(`http://localhost:8000/api/diaries/${this.diary.id}`)
       .then((diary: Diary) => {
-        this.title = diary.title;
-        this.body = diary.body;
+        this.diary.title = diary.title;
+        this.diary.body = diary.body;
       })
       .catch((error: any) => {
         console.error(error);
