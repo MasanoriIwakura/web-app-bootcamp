@@ -25,7 +25,7 @@
 
     <div class="row">
       <div class="col-10">
-        <input-body 
+        <input-body
           :value="diary.body"
           @input-value="inputBody"
         />
@@ -65,18 +65,19 @@ export default class InputDiary extends Vue {
   private errorMessage: string = "";
 
   public inputTitle(val: string){
-    this.diary.title = val; 
+    this.diary.title = val;
   }
-
 
   public inputBody(val: string){
     this.diary.body = val;
   }
 
   private submit(): void {
+    const slug = this.$nuxt.$route.params.slug;
+
     if (this.mode == "edit") {
       this.$axios
-        .$put(`http://localhost:8000/api/diaries/${this.diary.id}`, {
+            .$put(`${process.env.apiUrl}/${slug}/diaries/${this.diary.id}`, {
           ...this.diary
         })
         .then((response: any) => {
@@ -88,7 +89,7 @@ export default class InputDiary extends Vue {
         });
     } else {
       this.$axios
-        .$post(`http://localhost:8000/api/diaries`, {
+            .$post(`${process.env.apiUrl}/${slug}/diaries`, {
           title: this.diary.title,
           body: this.diary.body
         })

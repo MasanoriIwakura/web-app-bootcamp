@@ -13,6 +13,7 @@
     "lint": "eslint --ext .ts,.js,.vue ."
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "eslint": "^6.5.1",
     "nuxt": "^2.0.0",
     "vue-property-decorator": "^8.2.2"

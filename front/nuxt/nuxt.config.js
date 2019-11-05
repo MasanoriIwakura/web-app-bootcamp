@@ -1,8 +1,10 @@
+require('dotenv').config();
+const { API_URL } = process.env;
 
 export default {
   mode: 'spa',
   env: {
-    apiUrl: process.env.API_URL || 'http://localhost:8000'
+    apiUrl: API_URL
   },
   /*
   ** Headers of the page
@@ -38,7 +40,10 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxtjs/dotenv', 
+    '@nuxt/typescript-build'
+  ],
   /*
   ** Nuxt.js modules
   */
@@ -47,6 +52,8 @@ export default {
     'nuxt-webfontloader'
   ],
   axios: {
+  },
+  dotenv: {
   },
   webfontloader: {
     google: {
