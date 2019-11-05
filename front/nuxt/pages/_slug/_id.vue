@@ -46,7 +46,7 @@ export default class Edit extends Vue {
 
   public mounted(): void {
     this.$axios
-      .$get(`http://localhost:8000/api/diaries/${this.diary.id}`)
+      .$get(`${process.env.apiUrl}/${this.$nuxt.$route.params.slug}/diaries/${this.diary.id}`)
       .then((diary: Diary) => {
         this.diary.title = diary.title;
         this.diary.body = diary.body;
