@@ -1,6 +1,6 @@
 using System;
 
-namespace csharp_asp_dotnet
+namespace bootcamp
 {
     public class WeatherForecast
     {
