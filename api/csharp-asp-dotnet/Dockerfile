@@ -9,10 +9,15 @@ RUN dotnet restore
 
 COPY bootcamp ./bootcamp
 WORKDIR /app/bootcamp
-RUN dotnet publish -c Release -o out
 
+# For Development
+ENV ASPNETCORE_URLS=http://*:5000
+CMD ["dotnet", "watch", "run"]
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS runtime
-WORKDIR /app
-COPY --from=build /app/bootcamp/out ./
-ENTRYPOINT ["dotnet", "bootcamp.dll"]
+#RUN dotnet publish -c Release -o out
+#
+#
+#FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS runtime
+#WORKDIR /app
+#COPY --from=build /app/bootcamp/out ./
+#ENTRYPOINT ["dotnet", "bootcamp.dll"]
