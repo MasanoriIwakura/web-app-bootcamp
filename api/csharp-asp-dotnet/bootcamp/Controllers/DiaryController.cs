@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using bootcamp.Models;
 
 namespace bootcamp.Controllers
 {
@@ -12,25 +13,27 @@ namespace bootcamp.Controllers
     public class DiaryController : ControllerBase
     {
         private readonly ILogger<DiaryController> _logger;
+        private readonly MyContext _context;
 
-        public DiaryController(ILogger<DiaryController> logger)
+        public DiaryController(ILogger<DiaryController> logger, MyContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
         public IEnumerable<Diary> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Diary
-            {
-                Id = index,
-                Title = "title" + index,
-                Body = "body" + index,
+           // return this._context.Diary;
+           var list = new List<Diary>();
+           list.Add(new Diary(){
+                Id = 1, 
+                Title = "title", 
+                Body = "body", 
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-            })
-            .ToArray();
+           });
+           return list.ToArray();
         }
     }
 }

@@ -1,7 +1,9 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace bootcamp
+namespace bootcamp.Models
 {
+    [Table("diaries")]
     public class Diary 
     {
         public int Id { get; set; }
