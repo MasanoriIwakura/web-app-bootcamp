@@ -73,7 +73,7 @@ export default class DiaryList extends Vue {
 
   private getDiaries(): void {
     this.$axios
-      .$get(`${process.env.API_URL}/${this.$nuxt.$route.params.slug}/diaries`)
+      .$get(`${process.env.apiUrl}/${this.$nuxt.$route.params.slug}/diaries`)
       .then((response: Diary[]) => {
         this.diaries = response;
       })
