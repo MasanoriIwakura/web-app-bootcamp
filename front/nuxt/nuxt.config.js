@@ -6,6 +6,10 @@ export default {
   env: {
     apiUrl: API_URL
   },
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  },
   /*
   ** Headers of the page
   */
@@ -41,7 +45,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/dotenv', 
+    '@nuxtjs/dotenv',
     '@nuxt/typescript-build'
   ],
   /*
@@ -67,7 +71,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
