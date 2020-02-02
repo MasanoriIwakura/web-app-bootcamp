@@ -32,6 +32,14 @@ services:
     depends_on:
       - mysql
 
+  ruby-on-rails:
+    image: web-app-bootcamp/ruby-on-rails
+    build: ./api/ruby-on-rails
+    volumes:
+      - ./api/ruby-on-rails/bootcamp:/var/www/bootcamp:cached
+    depends_on:
+      - mysql
+
   mysql:
     image: mysql:8.0
     volumes:
