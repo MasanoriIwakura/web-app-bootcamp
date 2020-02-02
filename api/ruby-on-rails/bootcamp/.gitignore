@@ -24,3 +24,6 @@
 
 /public/assets
 .byebug_history
+
+.env
+/vendor

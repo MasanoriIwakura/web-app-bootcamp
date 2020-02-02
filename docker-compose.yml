@@ -11,6 +11,7 @@ services:
     depends_on:
       - php-laravel
       - csharp-asp-dotnet
+      - ruby-on-rails
 
   php-laravel:
     image: web-app-bootcamp/php-laravel
@@ -35,6 +36,8 @@ services:
   ruby-on-rails:
     image: web-app-bootcamp/ruby-on-rails
     build: ./api/ruby-on-rails
+    expose:
+      - 3000
     volumes:
       - ./api/ruby-on-rails/bootcamp:/var/www/bootcamp:cached
     depends_on:
