@@ -77,7 +77,7 @@ export default class InputDiary extends Vue {
 
     if (this.mode == "edit") {
       this.$axios
-            .$put(`${process.env.apiUrl}/${slug}/diaries/${this.diary.id}`, {
+        .$put(`${process.env.apiUrl}/${slug}/diaries/${this.diary.id}`, {
           ...this.diary
         })
         .then((response: any) => {
@@ -89,7 +89,7 @@ export default class InputDiary extends Vue {
         });
     } else {
       this.$axios
-            .$post(`${process.env.apiUrl}/${slug}/diaries`, {
+        .$post(`${process.env.apiUrl}/${slug}/diaries`, {
           title: this.diary.title,
           body: this.diary.body
         })
