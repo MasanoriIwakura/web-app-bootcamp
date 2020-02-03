@@ -14,7 +14,7 @@ class DiariesController < ApplicationController
   end
 
   def create
-    @diary = Diary.crate!(diary_params)
+    @diary = Diary.create!(diary_params)
     json_response(@diary, :created)
   end
 
@@ -24,7 +24,7 @@ class DiariesController < ApplicationController
   end
 
   def destroy
-    @diary.destroy(diary_params)
+    @diary.destroy
     head :no_content
   end
 
