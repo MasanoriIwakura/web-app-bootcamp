@@ -98,7 +98,7 @@ export default class DiaryList extends Vue {
     });
 
     this.$axios
-      .$delete(`http://localhost:8000/api/diaries/${this.deleteId}`)
+      .$delete(`${process.env.apiUrl}/${this.$nuxt.$route.params.slug}/diaries/${this.deleteId}`)
       .then(() => {
         this.successMessage = "Delete Success.";
       })
