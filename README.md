@@ -52,7 +52,32 @@
 - Java(Spring)
 - C#(ASP.NET Core)
 - Node.js(Express)
+- Python (Django or Flask)
 
 ## 画面イメージ
 
 ![](readme-images/2019-11-03-23-34-54.png)
+
+## 実行方法
+
+### Nuxt.js
+
+先にAPIを立ち上げる  
+
+```sh
+docker-compose up -d
+
+# migration未実施の場合はmigration実行
+# migrationのREADME参照
+cd front/nuxt
+yarn
+yarn dev
+```
+
+```
+http://localhost:3000/php-laravel
+http://localhost:3000/ruby-on-rails
+```
+
+のように末尾をAPIのフォルダ名にして各APIを使用した画面を表示
+
