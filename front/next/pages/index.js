@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 const Home = () => (
   <div className="container">
@@ -164,6 +164,6 @@ const Home = () => (
       }
     `}</style>
   </div>
-)
+);
 
-export default Home
+export default Home;

@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import DiaryList from "../../components/DiaryList";
+import Logo from "../../components/Logo";
 
 const Index = () => {
   const router = useRouter();
@@ -30,15 +32,16 @@ const Index = () => {
       <div className="main">
         <div className="row">
           <div className="col">
-            <logo />
+            <Logo />
           </div>
         </div>
-
         <div className="row">
           <div className="col">
             <button className="nes-btn is-primary">Add</button>
           </div>
-          <div className="col"></div>
+          <div className="col">
+            <DiaryList />
+          </div>
         </div>
       </div>
     </div>
