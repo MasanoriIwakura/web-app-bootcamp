@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "nes.css": "^2.3.0"
   }
 }
